@@ -1,5 +1,5 @@
 import type { ListaPokemons } from "../types/ListaPokemons";
-import type { Pokemon } from "../types/pokemon";
+import type { Pokemon } from "../types/Pokemon";
 
 export async function getPokemonList(
   limit: number = 20,
