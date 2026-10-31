@@ -1,9 +1,9 @@
 import "./App.css";
-import PokemonList from "./pages/PokemonList";
+import Home from "./pages/Home";
 function App() {
   return (
     <>
-      <PokemonList />
+      <Home />
     </>
   );
 }

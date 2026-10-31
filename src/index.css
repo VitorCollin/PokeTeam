@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --color-gradient: linearGradient(to: right, #ffd93d, #ff6b6b);
+  --color-rosa: #e673ac;
+  --color-verde: #469110;
+  --color-verde-escuro: #00520a;
+}

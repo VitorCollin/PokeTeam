@@ -1,4 +1,5 @@
 import usePokemon from "../hooks/usePokemon";
+import formatName from "../utils/formatName";
 
 interface PokemonCardProps {
   name: string;
@@ -16,8 +17,8 @@ export default function PokemonCard({ name }: PokemonCardProps) {
   }
 
   return (
-    <div className="flex flex-col items-center rounded-xl border p-4 shadow-sm">
-      <h2 className="font-bold">{data.name}</h2>
+    <div className="flex flex-col items-center rounded-xl border-2 border-amber-900 bg-linear-to-bl from-red-600 to-yellow-400 hover:translate-y-1 p-4 shadow-2xl">
+      <h2 className="font-bold">{formatName(data.name)}</h2>
       <img
         className=" h-32 w-32 object-contain"
         src={data.sprites.other["official-artwork"].front_default}
@@ -30,7 +31,7 @@ export default function PokemonCard({ name }: PokemonCardProps) {
             className="rounded-full px-3 py-1 text-sm bg-gray-200"
             key={item.type.name}
           >
-            {item.type.name}
+            {formatName(item.type.name)}
           </li>
         ))}
       </ul>

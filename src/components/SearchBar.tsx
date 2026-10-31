@@ -1,11 +1,17 @@
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
+  className: string;
 }
 
-export default function SearchBar({ value, onChange }: SearchBarProps) {
+export default function SearchBar({
+  value,
+  onChange,
+  className,
+}: SearchBarProps) {
   return (
     <input
+      className={className}
       type="search"
       placeholder="Pesquise um Pokemon"
       aria-label="Barra de pesquisa de Pokemon"

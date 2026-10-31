@@ -38,8 +38,13 @@ export default function PokemonList() {
 
   return (
     <div className="mx-auto w-full max-w-7xl p-4">
-      <h1>PokeTeam</h1>
-      <SearchBar value={search} onChange={handleSearchChange} />
+      <div className="flex justify-end">
+        <SearchBar
+          className="max-w-full p-1.5 mb-2.5 text-center rounded-xl border-2 border-blue-400 placeholder-green-900"
+          value={search}
+          onChange={handleSearchChange}
+        />
+      </div>
       <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {pageItems.map((poke) => (
           <li key={poke.name}>
