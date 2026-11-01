@@ -2,6 +2,7 @@ import usePokemon from "../hooks/usePokemon";
 import formatName from "../utils/formatName";
 import {
   typeColorBackground,
+  typeColorBackgroundDark,
   typeColorBorder,
   typeColorText,
 } from "../utils/typesColor";
@@ -37,7 +38,7 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
       <div
         className={`flex flex-col items-center m-2.5 bg- rounded-xl border-4 ${borderColor} ${bgColor} hover:translate-y-1 p-4 shadow-2xl`}
       >
-        <p className={`${textColor} text-4xl`}>
+        <p className={`${textColor} font-bold text-4xl`}>
           {formatName(data.name)} #{data.id}
         </p>
         <div>
@@ -47,8 +48,21 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
           />
         </div>
         <div>
-          <p className={`text-center text-3xl ${textColor}`}>Habilidades</p>
-          <ul className="grid grid-cols-2 gap-4 text-center ">
+          <p className={`text center text-3xl text-black`}>Tipos</p>
+          <ul className="grid grid-cols-2 gap-4 text-center">
+            {data.types.map((item) => (
+              <li
+                key={item.type.name}
+                className={`rounded-full ${typeColorText[item.type.name]} px-3 py-1 text-2xl border-2 ${typeColorBackgroundDark[item.type.name]}`}
+              >
+                {formatName(item.type.name)}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className={`text-center text-3xl ${textColor}`}>Golpes </p>
+          <ul className="grid grid-cols-2 gap-4 text-center items-center ">
             {data.moves.slice(0, 4).map((item) => (
               <li
                 key={item.move.name}

@@ -40,6 +40,27 @@ export const typeColorBackground: Record<string, string> = {
   fairy: "bg-rosa",
 };
 
+export const typeColorBackgroundDark: Record<string, string> = {
+  normal: "bg-gray-400",
+  fire: "bg-red-400",
+  water: "bg-blue-400",
+  grass: "bg-green-400",
+  electric: "bg-yellow-400",
+  ice: "bg-cyan-400",
+  fighting: "bg-orange-400",
+  poison: "bg-purple-400",
+  ground: "bg-amber-400",
+  flying: "bg-sky-400",
+  psychic: "bg-pink-400",
+  bug: "bg-lime-400",
+  rock: "bg-gray-400",
+  ghost: "bg-violet-400",
+  dragon: "bg-indigo-400",
+  dark: "bg-slate-400",
+  steel: "bg-mist-400",
+  fairy: "bg-rosa",
+};
+
 export const typeColorText: Record<string, string> = {
   normal: "text-gray-800",
   fire: "text-red-800",

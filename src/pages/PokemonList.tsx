@@ -45,7 +45,7 @@ export default function PokemonList() {
           onChange={handleSearchChange}
         />
       </div>
-      <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <ul className="grid grid-cols-2 text-center gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {pageItems.map((poke) => (
           <li key={poke.name}>
             <PokemonCard name={poke.name} />

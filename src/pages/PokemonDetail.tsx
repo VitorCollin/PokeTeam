@@ -12,7 +12,7 @@ export default function PokemonDetail() {
     );
   }
   return (
-    <div>
+    <div className="mx-auto max-w-3xl">
       <PokemonCardDetail name={pokemonName} />
     </div>
   );
