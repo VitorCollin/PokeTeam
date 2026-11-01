@@ -6,6 +6,7 @@ import {
   typeColorBorder,
   typeColorText,
 } from "../utils/typesColor";
+import Moves from "./Moves";
 import StatsBar from "./StatsBar";
 
 interface PokemonCardDetail {
@@ -32,17 +33,20 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
 
   if (data) {
     const mainType = data.types[0].type.name;
-    const bgColor = typeColorBackground[mainType];
-    const borderColor = typeColorBorder[mainType];
-    const textColor = typeColorText[mainType];
+    const colors = {
+      bgColor: typeColorBackground[mainType],
+      borderColor: typeColorBorder[mainType],
+      textColor: typeColorText[mainType],
+    };
     return (
       <div
-        className={`flex flex-col items-center m-2.5 bg- rounded-xl border-4 ${borderColor} ${bgColor} hover:translate-y-1 p-4 shadow-2xl`}
+        className={`flex flex-col items-center m-2.5 bg- rounded-xl border-4 ${colors.borderColor} ${colors.bgColor} hover:translate-y-1 p-4 shadow-2xl`}
       >
-        <p className={`${textColor} font-bold text-4xl`}>
+        <p className={`${colors.textColor} font-bold text-4xl`}>
           {formatName(data.name)} #{data.id}
         </p>
         <div>
+          s
           <img
             src={data.sprites.other["official-artwork"].front_default}
             alt={`Imagem do Pokemon ${data.name}`}
@@ -61,19 +65,7 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
             ))}
           </ul>
         </div>
-        <div>
-          <p className={`text-center text-3xl ${textColor}`}>Golpes </p>
-          <ul className="grid grid-cols-2 gap-4 text-center items-center ">
-            {data.moves.slice(0, 4).map((item) => (
-              <li
-                key={item.move.name}
-                className={`rounded-full ${textColor} px-3 py-1 text-2xl border-2 ${borderColor} `}
-              >
-                {formatName(item.move.name)}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Moves moves={data.moves} colors={colors} />
         <StatsBar stats={data.stats} />
       </div>
     );
