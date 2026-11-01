@@ -48,7 +48,7 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
           />
         </div>
         <div>
-          <p className={`text center text-3xl text-black`}>Tipos</p>
+          <p className={`text center text-3xl text-center text-black`}>Tipos</p>
           <ul className="grid grid-cols-2 gap-4 text-center">
             {data.types.map((item) => (
               <li
@@ -72,6 +72,25 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
               </li>
             ))}
           </ul>
+        </div>
+        <div>
+          <p>Status</p>
+          <div>
+            {data.stats.map((item) => (
+              <div key={item.stat.name} className="w-full ">
+                <div className="flex justify-between text-sm">
+                  <span>{formatName(item.stat.name)}</span>
+                  <span className="font-bold">{item.base_stat}</span>
+                </div>
+                <div className="h-3 w-full rounded-full bg-black/10">
+                  <div
+                    className="h-3 rounded-full bg-blue-500"
+                    style={{ width: `${(item.base_stat / 255) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

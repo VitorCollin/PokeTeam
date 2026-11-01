@@ -20,4 +20,10 @@ export default interface PokemonDetails {
   types: {
     type: { name: string };
   }[];
+  stats: {
+    base_stat: number;
+    stat: {
+      name: string;
+    };
+  }[];
 }
