@@ -1,6 +1,9 @@
 export default function formatName(text: string): string {
-  const firstLetter = text.charAt(0).toUpperCase();
-  const slicedText = text.slice(1);
-
-  return firstLetter + slicedText;
+  const words = text.split("-");
+  const formatted = words.map((word) => {
+    const firstLetter = word.charAt(0).toUpperCase();
+    const rest = word.slice(1);
+    return firstLetter + rest;
+  });
+  return formatted.join(" ");
 }

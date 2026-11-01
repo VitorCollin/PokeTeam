@@ -1,5 +1,4 @@
 import { useSearchParams } from "react-router-dom";
-import formatName from "../utils/formatName";
 import PokemonCardDetail from "../components/PokemonCardDetail";
 
 export default function PokemonDetail() {

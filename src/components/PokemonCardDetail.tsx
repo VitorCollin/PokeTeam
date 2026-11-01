@@ -48,8 +48,8 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
         </div>
         <div>
           <p className={`text-center text-3xl ${textColor}`}>Habilidades</p>
-          <ul className="flex gap-2">
-            {data.moves.map((item) => (
+          <ul className="grid grid-cols-2 gap-4 text-center ">
+            {data.moves.slice(0, 4).map((item) => (
               <li
                 key={item.move.name}
                 className={`rounded-full ${textColor} px-3 py-1 text-2xl border-2 ${borderColor} `}
