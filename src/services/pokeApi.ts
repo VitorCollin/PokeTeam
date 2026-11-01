@@ -1,7 +1,7 @@
 import type { ListaPokemons } from "../types/ListaPokemons";
-import type { Pokemon } from "../types/Pokemon";
+import type PokemonDetails from "../types/PokemonDetails";
 
-export async function getPokemon(name: string): Promise<Pokemon> {
+export async function getPokemon(name: string): Promise<PokemonDetails> {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
 
   if (!res.ok) {

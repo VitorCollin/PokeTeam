@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import usePokemon from "../hooks/usePokemon";
 import formatName from "../utils/formatName";
 
@@ -18,23 +19,25 @@ export default function PokemonCard({ name }: PokemonCardProps) {
 
   return (
     <div className="flex flex-col items-center rounded-xl border-2 border-amber-900 bg-linear-to-bl from-red-600 to-yellow-400 hover:translate-y-1 p-4 shadow-2xl">
-      <h2 className="font-bold">{formatName(data.name)}</h2>
-      <img
-        className=" h-32 w-32 object-contain"
-        src={data.sprites.other["official-artwork"].front_default}
-        alt={`Imagem do Pokemon ${data.name}`}
-      />
-      <h3>Tipos: </h3>
-      <ul className="flex gap-2">
-        {data.types.map((item) => (
-          <li
-            className="rounded-full px-3 py-1 text-sm bg-gray-200"
-            key={item.type.name}
-          >
-            {formatName(item.type.name)}
-          </li>
-        ))}
-      </ul>
+      <Link to={`/pokemon?pokemon=${data.name}`}>
+        <h2 className="font-bold">{formatName(data.name)}</h2>
+        <img
+          className=" h-32 w-32 object-contain"
+          src={data.sprites.other["official-artwork"].front_default}
+          alt={`Imagem do Pokemon ${data.name}`}
+        />
+        <h3>Tipos: </h3>
+        <ul className="flex gap-2">
+          {data.types.map((item) => (
+            <li
+              className="rounded-full px-3 py-1 text-sm bg-gray-200"
+              key={item.type.name}
+            >
+              {formatName(item.type.name)}
+            </li>
+          ))}
+        </ul>
+      </Link>
     </div>
   );
 }

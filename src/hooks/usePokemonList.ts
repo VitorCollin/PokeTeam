@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPokemonList } from "../services/pokeApi";
+import { getAllPokemonNames } from "../services/pokeApi";
 
-export default function usePokemonList(limit: number = 20, offset: number = 0) {
+export default function usePokemonList() {
   return useQuery({
-    queryKey: ["pokemonList", limit, offset],
-    queryFn: () => getPokemonList(limit, offset),
+    queryKey: ["pokemonList"],
+    queryFn: () => getAllPokemonNames(),
   });
 }
