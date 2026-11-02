@@ -1,10 +1,11 @@
-import formatName from "../utils/formatName";
+import useMoves from "../hooks/useMoves";
+import {
+  typeColorBackground,
+  typeColorBackgroundDark,
+  typeColorText,
+} from "../utils/typesColor";
 
 interface MovesProps {
-  colors: {
-    textColor: string;
-    borderColor: string;
-  };
   moves: {
     move: {
       name: string;
@@ -12,19 +13,36 @@ interface MovesProps {
     };
   }[];
 }
-export default function Moves({ moves, colors }: MovesProps) {
+export default function Moves({ moves }: MovesProps) {
+  const names = moves.slice(0, 4).map((item) => item.move.name);
+
+  const results = useMoves(names);
   return (
     <div>
-      <p className={`text-center text-3xl ${colors.textColor}`}>Golpes </p>
-      <ul className="grid grid-cols-2 gap-4 text-center items-center ">
-        {moves.slice(0, 4).map((item) => (
-          <li
-            key={item.move.name}
-            className={`rounded-full ${colors.textColor} px-3 py-1 text-2xl border-2 ${colors.borderColor} `}
-          >
-            {formatName(item.move.name)}
-          </li>
-        ))}
+      <ul className="grid grid-cols-2 gap-4 text-center">
+        {results.map((result, index) => {
+          const name = names[index];
+          if (result.isLoading) return <li key={name}>Carregando...</li>;
+          if (result.error) return null;
+
+          if (result.data) {
+            const colors = {
+              textColor: typeColorText[result.data.type.name],
+              backgroundColor: typeColorBackground[result.data.type.name],
+              backgroundDarkColor:
+                typeColorBackgroundDark[result.data.type.name],
+            };
+
+            return (
+              <li
+                key={result.data.name}
+                className={`rounded-full ${colors.textColor} px-3 py-1 text-2xl border-2 ${colors.backgroundDarkColor}`}
+              >
+                {result.data.name}
+              </li>
+            );
+          }
+        })}
       </ul>
     </div>
   );

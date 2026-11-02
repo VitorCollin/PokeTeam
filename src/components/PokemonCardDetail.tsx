@@ -46,7 +46,6 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
           {formatName(data.name)} #{data.id}
         </p>
         <div>
-          s
           <img
             src={data.sprites.other["official-artwork"].front_default}
             alt={`Imagem do Pokemon ${data.name}`}
@@ -65,7 +64,9 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
             ))}
           </ul>
         </div>
-        <Moves moves={data.moves} colors={colors} />
+        <ul>
+          <Moves moves={data.moves} />
+        </ul>
         <StatsBar stats={data.stats} />
       </div>
     );
