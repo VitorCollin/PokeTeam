@@ -8,6 +8,7 @@ import {
 } from "../utils/typesColor";
 import Moves from "./Moves";
 import StatsBar from "./StatsBar";
+import Types from "./Types";
 
 interface PokemonCardDetail {
   name: string;
@@ -51,22 +52,8 @@ export default function PokemonCardDetail({ name }: PokemonCardDetail) {
             alt={`Imagem do Pokemon ${data.name}`}
           />
         </div>
-        <div>
-          <p className={`text center text-3xl text-center text-black`}>Tipos</p>
-          <ul className="grid grid-cols-2 gap-4 text-center">
-            {data.types.map((item) => (
-              <li
-                key={item.type.name}
-                className={`rounded-full ${typeColorText[item.type.name]} px-3 py-1 text-2xl border-2 ${typeColorBackgroundDark[item.type.name]}`}
-              >
-                {formatName(item.type.name)}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <ul>
-          <Moves moves={data.moves} />
-        </ul>
+        <Types types={data.types} />
+        <Moves moves={data.moves} />
         <StatsBar stats={data.stats} />
       </div>
     );

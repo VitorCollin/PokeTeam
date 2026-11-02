@@ -1,4 +1,5 @@
 import useMoves from "../hooks/useMoves";
+import formatName from "../utils/formatName";
 import {
   typeColorBackground,
   typeColorBackgroundDark,
@@ -38,7 +39,7 @@ export default function Moves({ moves }: MovesProps) {
                 key={result.data.name}
                 className={`rounded-full ${colors.textColor} px-3 py-1 text-2xl border-2 ${colors.backgroundDarkColor}`}
               >
-                {result.data.name}
+                {formatName(result.data.name)}
               </li>
             );
           }
