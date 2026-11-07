@@ -40,7 +40,7 @@ export default function PokemonList() {
     <div className="mx-auto w-full max-w-7xl p-4">
       <div className="flex justify-end">
         <SearchBar
-          className="max-w-full p-1.5 mb-2.5 text-center rounded-xl border-2 border-blue-400 placeholder-green-900"
+          className="max-w-full text-center placeholder-black"
           value={search}
           onChange={handleSearchChange}
         />
@@ -66,7 +66,7 @@ export default function PokemonList() {
         >
           Anterior
         </button>
-        <span className="text-pink-600">
+        <span className="font-bold">
           {page}/{totalPages}
         </span>
         <button

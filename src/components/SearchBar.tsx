@@ -1,3 +1,5 @@
+import GlassCard from "./GlassCard";
+
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
@@ -10,13 +12,15 @@ export default function SearchBar({
   className,
 }: SearchBarProps) {
   return (
-    <input
-      className={className}
-      type="search"
-      placeholder="Pesquise um Pokemon"
-      aria-label="Barra de pesquisa de Pokemon"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-    />
+    <GlassCard className="m-1.5 p-1.5 text-2xl">
+      <input
+        className={className}
+        type="search"
+        placeholder="Pesquise um Pokemon"
+        aria-label="Barra de pesquisa de Pokemon"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </GlassCard>
   );
 }
